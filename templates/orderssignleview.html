@@ -1,0 +1,108 @@
+{% extends "companyhome.html" %}
+{% block content %}
+<div class="container">
+<h3>Order Details</h3>
+<br><br>
+    <table class="table">
+        <tr>
+            <td>Name:</td>
+            <td>{{order.name}}</td>
+        </tr>
+        <tr>
+            <td>From Address</td>
+            <th>{{order.from_address}}</th>
+        </tr>
+        <tr>
+            <td>Delivery Name</td>
+            <th>
+                {{order.delivery_person_name}}
+            </th>
+        </tr>
+        <tr>
+            <td>Delivery Address</td>
+            <th>
+                {{order.d_House}},
+                {{order.d_City}},
+                {{order.d_state}},
+                {{order.d_country}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Item Weight</td>
+            
+            <th>
+                {{order.weight}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Booked Date</td>
+            <th>
+                {{order.book_date}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>PickUp Date</td>
+            <th>
+                {{order.pickup_date}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Delivered Date</td>
+            <th>
+                {{order.deliverd_date}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <th style="color:blue">
+                {{order.status}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Track Id</td>
+            <th>
+                {{order.trackid}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Completion Status</td>
+            <th>
+                {{order.complation_status}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Order Status</td>
+            <th>
+                {{order.order_taken}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Staff</td>
+            <th>
+                {{order.staff_person}}
+
+            </th>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <th>{{order.total_amount}}</th>
+        </tr>
+    </table>
+    <a href="{%url 'StaffAssign' order.id %}" class="btn btn-outline-info">Assign Staff</a>
+    <a href="{%url 'Orderdespached' order.id %}" class="btn btn-outline-dark">Order Despached</a>
+    <a href="{%url 'Orderdedelivered' order.id %}"class="btn btn-outline-success">Order Delivered</a>
+    <a href="{%url 'DeleteOrder' order.id %}" class="btn btn-outline-danger">Delete</a>
+</div>
+
+
+
+{% endblock %}

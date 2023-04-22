@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="container mt-5">
+<table class="table">
+<tr>
+    <th>Booking Id</th>
+    <th>Price</th>
+    <th>Delivery</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+{% for i in payreq %}
+<tr>
+    <td>{{i.booking.trackid}}</td>
+    <td>{{i.booking.total_amount}}</td>
+    <td>{{i.booking.delivery_person_name}},{{i.booking.d_House}}</td>
+    <td>{{i.booking.status}}</td>
+
+    <td><a href="{%url 'makepaymet' i.id%}" class="btn btn-outline-warning">Pay Now</a></td>
+</tr>
+{% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "staffhome.html" %}
+{% block content%}
+
+<div class="container">
+    <h3>Order Details</h3>
+    {% for m in messages  %}
+<h5 style="color:red">{{m}}</h5>          
+        {% endfor %}
+    <br><br>
+        <table class="table">
+            <tr>
+                <td>Name:</td>
+                <td>{{order.name}}</td>
+            </tr>
+            <tr>
+                <td>From Address</td>
+                <th>{{order.from_address}}</th>
+            </tr>
+            <tr>
+                <td>Delivery Name</td>
+                <th>
+                    {{order.delivery_person_name}}
+                </th>
+            </tr>
+            <tr>
+                <td>Delivery Address</td>
+                <th>
+                    {{order.d_House}},
+                    {{order.d_City}},
+                    {{order.d_state}},
+                    {{order.d_country}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Item Weight</td>
+                
+                <th>
+                    {{order.weight}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Booked Date</td>
+                <th>
+                    {{order.book_date}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>PickUp Date</td>
+                <th>
+                    {{order.pickup_date}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <th>
+                    {{order.status}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Track Id</td>
+                <th>
+                    {{order.trackid}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Completion Status</td>
+                <th>
+                    {{order.complation_status}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Order Status</td>
+                <th>
+                    {{order.order_taken}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Staff</td>
+                <th>
+                    {{order.staff_person}}
+    
+                </th>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <th>{{order.total_amount}}</th>
+            </tr>
+        </table>
+        <form method="post">
+            {% csrf_token %}
+            <input type="number" step="padding:4px;width:600px" name="weight" placeholder="Enter Weight">
+            <br><br>
+            <button type="submit" class="btn btn-info">Add Order</button>
+            <br><br>
+        </form>
+
+        <form action="{%url 'reqpayment' order.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-warning">Request Payment</button>
+        </form>
+    </div>
+{% endblock %}

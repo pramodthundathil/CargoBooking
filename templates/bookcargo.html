@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+{% block content %}
+<style>
+    .itemcontainer{
+        width:90%;
+        margin: auto;
+        border: 5px solid orange;
+        padding: 30px;
+        text-align: center;
+
+    }
+    .itemcontainer input{
+        width:80%;
+        padding: 4px;
+        border:.5px solid gray;
+    }
+</style> 
+
+<div class="container mt-5">
+    <div class="itemcontainer">
+        <h3>Book Cargo</h3>
+        {% for m in messages  %}
+        <h5 style="color:red">{{m}}</h5>          
+                {% endfor %}
+        <form method = "post">
+            {% csrf_token %}
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <th>From Address</th>
+                <th><textarea name="address" id="" cols="62" rows="5" required></textarea></th>
+            </tr>
+            <tr>
+                <th>Delivery Person Name</th>
+                <td><input type="text" name="dname" required></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td><input type="text" name="phone" required></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" name="email" required></td>
+            </tr>
+
+            <tr>
+                <th>Delivery House</th>
+                <td><input type="text" name="house" required></td>
+            </tr>
+            <tr>
+                <th>Delivery City</th>
+                <td><input type="text" name="city" required></td>
+            </tr>
+            <tr>
+                <th>State</th>
+                <td><input type="text" name="state" required></td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td><input type="text" name="country" required></td>
+            </tr>
+            <tr>
+                <th>Item Type:</th>
+                <td><input type="text" name="itemtype" required></td>
+            </tr>
+            <tr>
+                <th>Item Aproximate White</th>
+                <td><input type="number" name="weight" required></td>
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+
+    </div>
+</div>
+
+{% endblock %}

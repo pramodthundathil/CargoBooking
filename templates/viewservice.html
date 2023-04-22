@@ -1,0 +1,77 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Pricing Plan Start -->
+<div class="container-fluid pt-5">
+    <div class="container">
+        <div class="text-center pb-2">
+            <h6 class="text-primary text-uppercase font-weight-bold">Pricing Plan</h6>
+            <h1 class="mb-4">Affordable Pricing Packages</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-5">
+                <div class="bg-secondary">
+                    <div class="text-center p-4">
+                        <h1 class="display-4 mb-0">
+                            <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">Rs.</small>{{price.Normal_Amount}}<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/kg</small>
+                        </h1>
+                    </div>
+                    <div class="bg-primary text-center p-4">
+                        <h3 class="m-0">Normal Products</h3>
+                    </div>
+                    <div class="d-flex flex-column align-items-center py-4">
+                        <p>Plan Include Wapping Product</p>
+                        <p>Min 10 Grams</p>
+                        <p>Normal Delivery</p>
+                        <p>House Pickup</p>
+                        <a href="{%url 'BookCargo' price.user.id %}" class="btn btn-primary py-2 px-4 my-2">Select Plan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="bg-secondary">
+                    <div class="text-center p-4">
+                        <h1 class="display-4 mb-0">
+                            <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">Rs</small>{{price.Basic_Amount}}<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/kg</small>
+                        </h1>
+                    </div>
+                    <div class="bg-primary text-center p-4">
+                        <h3 class="m-0">Elecronics Goods</h3>
+                    </div>
+                    <div class="d-flex flex-column align-items-center py-4">
+                        <p>Plan Include Wapping Product</p>
+                        <p>Min 10 Grams</p>
+                        <p>Speed Delivery</p>
+                        <p>House Pickup</p>
+                        <a href="{%url 'BookCargo1' price.user.id  %}" class="btn btn-primary py-2 px-4 my-2">Select Plan</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="bg-secondary">
+                    <div class="text-center p-4">
+                        <h1 class="display-4 mb-0">
+                            <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">Rs</small>{{price.Paltinum_Amount}}<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/kg</small>
+                        </h1>
+                    </div>
+                    <div class="bg-primary text-center p-4">
+                        <h3 class="m-0">Highly Handeabe Goods</h3>
+                    </div>
+                    <div class="d-flex flex-column align-items-center py-4">
+                        <p>Plan Include Wapping Product</p>
+                        <p>Min 10 Grams</p>
+                        <p>High speed Delivery</p>
+                        <p>House Pickup</p>
+                        <a href="{%url 'BookCargo2' price.user.id %}" class="btn btn-primary py-2 px-4 my-2">Select Plan</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pricing Plan End -->
+
+
+{% endblock %}

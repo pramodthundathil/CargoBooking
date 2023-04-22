@@ -1,0 +1,71 @@
+{% extends "companyhome.html" %}
+{% block content %}
+<style>
+    .itemcontainer1 {
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+    }
+    .itemcontainer1 h4{
+        margin-bottom: .5px solid orange;
+    }
+    .itemcontainer1 input{
+        width:90%;
+        padding: 4px;
+        border: .5px solid orange;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="itemcontainer1">
+
+                <h4>Profile And Pricing</h4>
+
+                <table class="table">
+                    <tr>
+                        <th>Company:</th>
+                        <th>:{{data.company_name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Normal Price</th>
+                        <th>:{{data.Normal_Amount}}</th>
+                    </tr>
+                    <tr>
+                    <th>Executive Price</th>
+                    <th>:{{data.Basic_Amount}}</th>
+                </tr>
+                <tr>
+                    <th>Premiem Price</th>
+                    <th>:{{data.Paltinum_Amount}}</th>
+                </tr>
+                <tr>
+                    <img src="{{data.image.url}}" alt="" style="width:300px;height:auto">
+                </tr>
+
+                </table>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="itemcontainer1">
+                <h4> Update Or Add Pricing</h4>
+                <br>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" name="cname" placeholder="Company Name" required><br><br>
+                    <input type="number" min="1" name="nprice" placeholder="Normal Price" required><br><br>
+                    <input type="number" min="1" name="exprice" placeholder="Executive plan price" required><br><br>
+                    <input type="number" min="1" name="priprice" placeholder="Premiame Plan Price" required><br><br>
+                    <input type="file" name="img" required>Image To display <br><br>
+                    <button class="btn btn-info" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

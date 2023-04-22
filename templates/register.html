@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% block content %}
+<br><br><br>
+<style>
+    .logform{
+        width:100%;
+        padding: 6px;
+        text-align: center;
+
+    }
+    .logform input{
+        width:60%;
+        padding: 10px;
+
+    }
+</style>
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container text-center py-5">
+        <h1 class="text-primary mb-4">Register</h1>
+        <h1 class="text-white display-3 mb-5">Logistics Services</h1>
+        <div class="container logform">
+            <form method="post">
+                {% csrf_token %}
+                {% for fields in form  %}
+
+                {{fields.label}}: <br><br>
+                {{fields}} <br><br>
+                  
+                {% endfor %}
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form> <br>
+            Have an account please click <a href="{%url 'SignIn' %}">Here</a>
+        </div>
+    </div>
+</div>
+<br><br>
+{% endblock %}

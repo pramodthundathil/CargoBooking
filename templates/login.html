@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block content %}
+<br><br><br>
+<style>
+    .logform{
+        width:100%;
+        padding: 6px;
+
+    }
+    .logform input{
+        width:60%;
+        padding: 10px;
+
+    }
+</style>
+<div class="jumbotron jumbotron-fluid mb-5">
+    <div class="container text-center py-5">
+        <h1 class="text-primary mb-4">Login</h1>
+        <h1 class="text-white display-3 mb-5">Logistics Services</h1>
+        {% for m in messages  %}
+<h5 style="color:red">{{m}}</h5>          
+        {% endfor %}
+        <div class="container logform">
+            <form method="post">
+                {% csrf_token %}
+                <input type="text" name="uname" placeholder="Username" required><br><br>
+                <input type="password" name="pswd" placeholder="Password" required> <br><br>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form><br>
+            Dont have an account please click <a href="{%url 'SignUp' %}">Here</a>
+
+        </div>
+    </div>
+</div>
+<br><br>
+{% endblock %}
